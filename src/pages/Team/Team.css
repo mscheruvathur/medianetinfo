@@ -1,0 +1,167 @@
+/* ============================================================
+   TEAM PAGE — matches medianetinfo.com/team/
+   ============================================================ */
+
+#team-page {
+  background: #fff;
+  padding-top: 80px;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.team-blue {
+  color: #1D93D1;
+}
+
+/* ── INTRO ── */
+.team-intro {
+  padding: 80px 0 72px;
+  text-align: center;
+}
+
+.team-intro-heading {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  color: #0d1b2e;
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+.team-intro-sub {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── TWO VIDEOS ── */
+.team-videos {
+  padding: 48px 0 72px;
+}
+
+.team-videos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.team-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── TEAM GRID ── */
+.team-grid-section {
+  padding: 56px 0 96px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ── TEAM CARD ── */
+.team-player {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-player-img-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.team-player-img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-player:hover .team-player-img {
+  transform: scale(1.05);
+}
+
+.team-player-info {
+  padding: 16px 4px 8px;
+}
+
+.team-player-name {
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #0d1b2e;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.team-player-designation {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.82rem;
+  color: #888;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .team-container {
+    padding: 0 32px;
+  }
+  .team-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-container {
+    padding: 0 20px;
+  }
+  .team-intro {
+    padding: 56px 0 52px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .team-videos-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-videos {
+    padding: 32px 0 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-intro-heading {
+    font-size: 1.8rem;
+  }
+  .team-grid {
+    gap: 16px;
+  }
+}

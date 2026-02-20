@@ -1,0 +1,159 @@
+/* ============================================================
+   WORK PAGE — /work
+   ============================================================ */
+
+.work-page {
+  padding-top: 93px; /* navbar height */
+}
+
+/* ── Page Header ── */
+.work-page-header {
+  padding: 70px 0 50px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.work-page-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.work-page-header h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5em, 5vw, 4em);
+  color: #111;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.work-page-blue {
+  color: #1D93D1;
+}
+
+.work-page-header p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ── Grid Section ── */
+.work-page-grid-section {
+  background: #fff;
+  padding: 50px 0 80px;
+}
+
+.work-page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* 2-column work grid — matches live site Bootstrap col-md-6 */
+#works.works-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── Work card ── */
+.work {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  background: #f5f5f5;
+}
+
+.work img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+}
+
+.work-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.78);
+  transform: scale(0);
+  opacity: 0;
+  animation: none;
+}
+
+.work-info h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 2.4em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1D93D1;
+  margin: 0 0 8px;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+
+.work-view {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #333;
+  border-bottom: 2px solid #1D93D1;
+  padding-bottom: 2px;
+}
+
+.work:hover img {
+  transform: scale(1.125);
+}
+
+.work:hover .work-info {
+  animation: popIn 0.4s forwards;
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0); opacity: 0; }
+  80%  { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  #works.works-page-grid {
+    gap: 16px;
+  }
+  .work img {
+    height: 260px;
+  }
+  .work-info h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 640px) {
+  .work-page-header-inner,
+  .work-page-container {
+    padding: 0 20px;
+  }
+
+  #works.works-page-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .work img {
+    height: 240px;
+  }
+}

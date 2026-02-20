@@ -1,0 +1,428 @@
+/* ============================================================
+   PROJECTS SECTION  –  matches reference image exactly
+   ============================================================ */
+
+#projects-section {
+  background-color: #fff;
+  padding: 100px 0;
+  overflow: visible;
+}
+
+/* ── Split layout ── */
+.projects-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  overflow: visible;
+}
+
+/* ── LEFT: text panel ── */
+.projects-text {
+  flex: 0 0 260px;
+  width: 260px;
+  padding-top: 0;
+  position: sticky;
+  top: 100px;
+}
+
+/* "Our" – dark navy large */
+.projects-heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 18px;
+  line-height: 1;
+}
+
+.projects-our {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  color: #0d1b2e;
+  letter-spacing: -0.01em;
+}
+
+/* "Projects" – blue */
+.projects-blue {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  color: #1D93D1;
+  letter-spacing: -0.01em;
+}
+
+/* Short blue underline bar */
+.projects-divider {
+  width: 44px;
+  height: 4px;
+  background: #1D93D1;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+.projects-body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 36px;
+}
+
+/* Dark navy pill button */
+.btn-discover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: #0d1b2e;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-discover:hover {
+  background: #1D93D1;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* ── RIGHT: card grid ── */
+#works.works-grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* ── Base card ── */
+.work {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111;
+}
+
+/* Portrait card – tall, starts at top */
+.work--portrait {
+  height: 520px;
+  border-bottom: 4px solid #1D93D1;
+}
+
+/* Right column wrapper – offset downward for stagger effect */
+.works-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 80px;
+}
+
+/* Landscape cards inside right wrapper */
+.work--landscape {
+  height: 220px;
+}
+
+/* ── Image wrapper for zoom effect ── */
+.work-img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Override global img { height: auto } */
+.work-img-wrap img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.work--portrait .work-img-wrap img {
+  object-position: 50% 20%;
+}
+
+.work:hover .work-img-wrap img {
+  transform: scale(1.07);
+}
+
+/* ── Overlay for photo cards ── */
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* Bottom-anchored: gradient + pill + title */
+.work-overlay--bottom {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    transparent 70%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 26px;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.work:hover .work-overlay--bottom {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.25) 55%,
+    transparent 75%
+  );
+}
+
+/* Center-anchored: blue-tinted overlay + centered text */
+.work-overlay--center {
+  background: rgba(29, 100, 180, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background 0.3s;
+}
+
+.work:hover .work-overlay--center {
+  background: rgba(29, 100, 180, 0.68);
+}
+
+/* ── Category pill badge ── */
+.work-pill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 14px;
+  background: #1D93D1;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 50px;
+}
+
+/* ── Card Titles ── */
+.work-title {
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Photo card – large bold white */
+.work-title--photo {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Centered card – italic bold white */
+.work-title--italic {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition: letter-spacing 0.3s;
+}
+
+.work:hover .work-title--italic {
+  letter-spacing: 0.1em;
+}
+
+/* Client pill badge on card 2 */
+.work-client-pill {
+  display: inline-block;
+  padding: 5px 18px;
+  background: #0d1b2e;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* Client name under title on centered card (legacy) */
+.work-client-centered {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Coral color card ── */
+.work--color {
+  background: #e85c3a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 24px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.work--color::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s;
+  border-radius: 20px;
+}
+
+.work--color:hover {
+  background: #d44e2e;
+}
+
+/* Small tag top-left */
+.work-tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Center content block */
+.work-color-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* "Experience" italic */
+.work-subtitle-italic {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* "THE REAL QUALITY" bold center */
+.work-title--color {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* Short white divider line */
+.work-divider-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 1px;
+  margin-top: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .projects-inner {
+    padding: 0 48px;
+    gap: 40px;
+  }
+  .projects-text {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+  .work--portrait {
+    height: 480px;
+  }
+  .work--landscape {
+    height: 205px;
+  }
+  .works-right {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-inner {
+    flex-direction: column;
+    padding: 0 28px;
+    gap: 32px;
+  }
+  .projects-text {
+    flex: none;
+    width: 100%;
+    position: static;
+  }
+  #works.works-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .works-right {
+    padding-top: 0;
+    gap: 14px;
+  }
+  .work--portrait {
+    height: 380px;
+  }
+  .work--landscape {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  #projects-section {
+    padding: 60px 0;
+  }
+  .projects-inner {
+    padding: 0 16px;
+  }
+  #works.works-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .works-right {
+    padding-top: 0;
+  }
+  .work--portrait {
+    height: 340px;
+  }
+  .work--landscape {
+    height: 200px;
+  }
+}

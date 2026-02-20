@@ -1,0 +1,205 @@
+body {
+  background: linear-gradient(135deg, #f7fafc 0%, #e3f0fa 100%);
+}
+
+.clients-page-hero {
+  position: relative;
+  z-index: 2;
+}
+.clients-page-subtitle {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.15rem;
+  color: #4a6fa1;
+  margin: 18px auto 0;
+  max-width: 540px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(29,147,209,0.07);
+}
+
+.clients-page-grid {
+  margin-top: 32px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(29,147,209,0.07);
+  padding: 18px 0 8px 0;
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.clients-page-logo-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(29,147,209,0.04);
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+  background: #fff;
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.clients-page-logo-card img {
+  filter: grayscale(100%) brightness(0.95);
+  opacity: 0.7;
+  transition: filter 0.3s, opacity 0.3s, transform 0.2s;
+}
+.clients-page-logo-card:hover {
+  box-shadow: 0 8px 32px rgba(29,147,209,0.13);
+  background: #f7fafc;
+  transform: translateY(-6px) scale(1.04);
+}
+.clients-page-logo-card:hover img {
+  filter: grayscale(0%) brightness(1.05);
+  opacity: 1;
+  transform: scale(1.08) rotate(-2deg);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ── Video section ── */
+.clients-page-videos {
+  width: 100%;
+  background: #f7fafc;
+  padding: 32px 0 16px;
+  display: flex;
+  justify-content: center;
+}
+.clients-page-videos-inner {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+.clients-page-video {
+  width: 340px;
+  height: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: #000;
+}
+
+@media (max-width: 1100px) {
+  .clients-page-videos-inner {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .clients-page-video {
+    width: 100%;
+    max-width: 400px;
+    height: 220px;
+  }
+}
+/* ============================================================
+   CLIENTS PAGE
+   ============================================================ */
+
+#clients-page {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+/* ── Hero heading ── */
+.clients-page-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.clients-page-heading {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #111;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.clients-page-blue {
+  color: #1D93D1;
+}
+
+/* ── Logo grid ── */
+.clients-page-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background-color: #e8ecef;
+  border: 1px solid #e8ecef;
+  margin-bottom: 0;
+}
+
+/* ── Individual logo card ── */
+.clients-page-logo-card {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 28px;
+  aspect-ratio: 16 / 9;
+  transition: box-shadow 0.2s;
+}
+
+.clients-page-logo-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  position: relative;
+}
+
+.clients-page-logo-card img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.clients-page-logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Fallback when image fails to load */
+.logo-name-fallback::after {
+  content: attr(data-name);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .clients-page-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-page-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .clients-page-logo-card {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .clients-page-hero {
+    padding: 60px 16px 40px;
+  }
+}

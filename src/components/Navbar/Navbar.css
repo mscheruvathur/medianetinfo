@@ -1,0 +1,273 @@
+/* ============================================================
+   NAVBAR / SIDEBAR — medianetinfo.com clone
+   ============================================================ */
+
+/* ── Top Bar ── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: background-color 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+.site-header.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo {
+  display: block;
+}
+.logo-img {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s;
+}
+.site-header.scrolled .logo-img {
+  filter: none;
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  outline: none;
+  position: relative;
+  z-index: 999;
+  flex-shrink: 0;
+}
+.burger-bar-wrap {
+  width: 100%;
+}
+.bar {
+  width: 18px;
+  height: 3px;
+  background-color: #fff;
+  transform-style: preserve-3d;
+  transition: transform 0.3s, background-color 0.3s;
+  display: block;
+}
+.bar-2 {
+  width: 36px;
+  margin: 5px 0;
+}
+.bar-3 {
+  margin-left: auto;
+}
+.site-header.scrolled .bar {
+  background-color: #1D93D1;
+}
+/* X state */
+.hamburger.active .bar-1 {
+  width: 28px;
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar-2 {
+  width: 28px;
+  opacity: 0;
+}
+.hamburger.active .bar-3 {
+  width: 28px;
+  margin-left: 0;
+  transform: translateY(-8px) rotate(-45deg);
+}
+.hamburger.active .bar {
+  background-color: #1D93D1;
+}
+
+/* ── Backdrop ── */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 990;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.sidebar-backdrop.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(480px, 90vw);
+  z-index: 995;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: transform 0.6s, box-shadow 0.1s 0.3s;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 70px 180px 50px;
+  overflow-y: auto;
+}
+.sidebar.visible {
+  transform: translateX(0);
+  box-shadow: -3px 0 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Main Menu ── */
+.main-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+.main-menu li {
+  margin-bottom: 0.15em;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0 !important;
+  margin: 5px 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #000;
+  text-decoration: none;
+  background: linear-gradient(to right, #000, #000 50%, #1D93D1 50%);
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 0.6s ease;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav-link:hover {
+  background-position: 0 100%;
+  text-decoration: none;
+}
+.nav-link.active {
+  background-position: 0 100%;
+}
+
+/* ── Menu Footer ── */
+.menu-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 70px 30px 50px;
+}
+
+/* Social icons */
+.sm-icons {
+  display: flex;
+  gap: 0;
+}
+.sm-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 6px;
+  border: 1px solid #000;
+  color: #000;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.sm-icons a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* CTA row */
+.menu-footer-cta {
+  margin-top: 28px;
+}
+.menu-footer-cta p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0 0 4px;
+}
+.menu-footer-cta h5 {
+  margin: 0;
+}
+.menu-footer-cta h5 a {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1D93D1;
+  text-decoration: none;
+}
+.menu-footer-cta h5 a:hover {
+  text-decoration: underline;
+}
+
+/* Pulse animation */
+.pulse {
+  display: inline-block;
+  animation: pulse 2s infinite;
+  transform-origin: center left;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+/* Branch cities row */
+.menu-footer-branches {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+.branch-city {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.branch-city:hover {
+  color: #1D93D1;
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 576px) {
+  .header-inner {
+    padding: 0 16px;
+  }
+  .nav-link {
+    font-size: 1.8rem;
+  }
+  .sidebar {
+    padding: 80px 24px 180px 24px;
+  }
+  .menu-footer {
+    padding: 0 24px 24px 24px;
+  }
+}

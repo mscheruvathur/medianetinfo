@@ -1,0 +1,62 @@
+/* ============================================================
+   SERVICES MARQUEE — #services
+   ============================================================ */
+
+#services {
+  background-color: #000;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.service-marquee {
+  overflow: hidden;
+}
+
+.services {
+  display: flex;
+  align-items: center;
+  animation: service-slide 60s infinite linear;
+  white-space: nowrap;
+}
+
+.services h1 {
+  padding-right: 15px;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+  white-space: nowrap;
+  color: #000;
+  font-size: 4em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  margin: 0;
+  transition: color 0.2s;
+  cursor: default;
+}
+
+.services h1:hover {
+  color: #fff;
+  text-shadow: none;
+}
+
+.services h1::after {
+  content: '○';
+  text-shadow: none;
+  color: #fff;
+  font-size: 0.4em;
+  padding-left: 15px;
+  vertical-align: middle;
+}
+
+@keyframes service-slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .services h1 {
+    font-size: 2em;
+  }
+}

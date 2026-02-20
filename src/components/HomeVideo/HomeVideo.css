@@ -1,0 +1,39 @@
+/* ── HOME VIDEO SECTION ── */
+.home-video-section {
+  padding: 32px 0;
+  background: #fff;
+}
+
+.home-video-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.home-video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.home-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .home-video-container {
+    padding: 0 20px;
+  }
+  .home-video-section {
+    padding: 24px 0;
+  }
+}

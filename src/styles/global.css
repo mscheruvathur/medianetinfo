@@ -1,0 +1,273 @@
+/* ============================================================
+   GLOBAL STYLES — medianetinfo.com clone
+   Primary: #1D93D1 | Fonts: Rubik (body), Lato (headings), Playfair Display (hero)
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #1D93D1;
+  --primary-dark: #1778ae;
+  --primary-light: rgba(29, 147, 209, 0.15);
+  --black: #000;
+  --white: #fff;
+  --dark: #343a40;
+  --text: #212529;
+  --muted: #6c757d;
+  --light-bg: #f8f9fa;
+  --border-light: #dee2e6;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Underline Highlight on headings ---- */
+h1 span.underline,
+h2 span.underline,
+h3 span.underline,
+h4 span.underline,
+h5 span.underline,
+h6 span.underline {
+  position: relative;
+}
+h1 span.underline::after,
+h2 span.underline::after,
+h3 span.underline::after,
+h4 span.underline::after,
+h5 span.underline::after,
+h6 span.underline::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 65%;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  background-color: var(--primary);
+  z-index: -1;
+}
+
+/* ---- Reveal text animation ---- */
+.reveal-text,
+.reveal-text::after {
+  animation-delay: var(--animation-delay, 2s);
+  animation-iteration-count: var(--iterations, 1);
+  animation-duration: var(--duration, 800ms);
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.reveal-text {
+  --animation-delay: var(--delay, 0);
+  --animation-duration: var(--duration, 800ms);
+  --animation-iterations: var(--iterations, 1);
+  position: relative;
+  animation-name: clip-text;
+  white-space: nowrap;
+  cursor: default;
+}
+.reveal-text.delay-400 { --delay: 400ms; }
+.reveal-text.delay-600 { --delay: 600ms; }
+.reveal-text.delay-800 { --delay: 800ms; }
+
+.reveal-text::after {
+  content: '';
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+  animation-name: text-revealer;
+}
+
+@keyframes clip-text {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes text-revealer {
+  0%, 50%   { transform-origin: 0 50%; }
+  60%, 100% { transform-origin: 100% 50%; }
+  60%       { transform: scaleX(1); }
+  100%      { transform: scaleX(0); }
+}
+
+/* ---- Button base ---- */
+.btn-primary-custom {
+  display: inline-block;
+  padding: 0.6em 1.6em;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.btn-primary-custom:hover {
+  background-color: transparent;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ---- Pulse animation on CTA button ---- */
+.btn-pulse {
+  position: relative;
+}
+.btn-pulse::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  border-radius: inherit;
+  animation: btn-pulse 2s infinite;
+  box-shadow: 0 0 4px var(--primary);
+}
+.btn-pulse:hover::after {
+  animation: none;
+}
+
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 0 4px var(--primary); }
+  50%      { box-shadow: 0 0 16px var(--primary); }
+}
+
+/* ---- Hover zoom ---- */
+.hover-zoom {
+  transform: scale(1);
+  transition: transform 0.4s;
+  will-change: transform;
+}
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+.hover-zoom-rotate {
+  transform: scale(1);
+  will-change: transform;
+  transition: transform 0.8s;
+}
+.hover-zoom-rotate:hover {
+  transform: scale(1.125) rotateZ(-3deg);
+}
+
+/* ---- Pulse scale ---- */
+.pulse {
+  transform: scale(1);
+  backface-visibility: hidden;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+/* ---- Social icons ---- */
+.sm-icons a {
+  display: inline-block;
+  font-size: 1.25em;
+  margin-right: 5px;
+  padding: 5px 10px;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--white);
+  border: 1px solid var(--white);
+  text-decoration: none;
+}
+.sm-icons a:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  text-decoration: none;
+}
+.sm-icons.black a {
+  color: var(--black);
+  border-color: var(--black);
+}
+.sm-icons.black a:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 961px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* ---- Section title ---- */
+h1.section-title {
+  font-size: 4em;
+}
+@media (max-width: 768px) {
+  h1.section-title {
+    font-size: 2em;
+  }
+}
+
+p.section-subtitle {
+  font-size: 1.5em;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }

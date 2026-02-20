@@ -1,0 +1,113 @@
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+
+#contact-page {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 80px; /* navbar height offset */
+}
+
+/* ── Hero heading ── */
+.contact-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.contact-heading {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #111;
+  margin: 0 0 20px;
+  line-height: 1.15;
+}
+
+.contact-blue {
+  color: #1D93D1;
+}
+
+.contact-sub {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+/* ── 3-column map grid ── */
+.contact-maps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-bottom: 80px;
+}
+
+/* ── Individual card ── */
+.contact-card {
+  border: 1px solid #e4e8ec;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.map-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+
+/* ── Address below map ── */
+.contact-card-info {
+  padding: 20px 20px 24px;
+}
+
+.contact-card-info strong {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.contact-card-info p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0 0 6px;
+}
+
+.contact-phone {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .contact-maps {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-hero {
+    padding: 60px 16px 40px;
+  }
+  .contact-maps {
+    padding: 0 16px 60px;
+  }
+}

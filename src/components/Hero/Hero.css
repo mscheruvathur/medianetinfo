@@ -1,0 +1,187 @@
+/* ============================================================
+   HERO SECTION — #home-banner2
+   ============================================================ */
+
+#home-banner2 {
+  min-height: 100vh;
+  background-color: #1D93D1;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-inner {
+  width: 100vw;
+  margin: 0;
+  padding: 10px 7vw 60px 7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* ── Hero Title ── */
+.hero-title {
+  flex: 1;
+  min-width: 0;
+  overflow: visible;
+}
+
+.hero-title h1 {
+  font-size: clamp(3.5em, 8vw, 10em);
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: #fff;
+  padding-left: 0;
+  line-height: 1.1;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-title h1 {
+    font-size: clamp(2.5em, 10vw, 4em);
+    padding-left: 0;
+  }
+}
+
+.hero-title h1 .line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Each character starts off-screen left, animates into place */
+.hero-title h1 .line span {
+  display: inline-block;
+  will-change: translate;
+  translate: -1500px 0;
+  animation: hero-text 0.8s ease-in-out forwards;
+}
+
+@keyframes hero-text {
+  0%   { translate: -1500px 0; }
+  100% { translate: 0px 0; }
+}
+
+/* ── Smiley Box ── */
+.anim-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 380px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+@media (max-width: 960px) {
+  .anim-box {
+    display: none;
+  }
+}
+
+.smiley-box {
+  width: 300px;
+  will-change: transform;
+  animation: drop 0.75s linear forwards, spin 2s linear forwards;
+  translate: 0 -200%;
+  scale: 100% 100%;
+  rotate: 0deg;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.smiley-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* White overlay — covers smiley face during drop */
+.smiley-box::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: white;
+  border-radius: 50%;
+  opacity: 1;
+  animation: hide-overlay 0.2s ease-in 1.25s forwards;
+}
+
+/* Blue circle overlay (top-right) — blends with hero bg */
+.smiley-box::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 3;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: #1D93D1;
+  border-radius: 50%;
+  opacity: 1;
+  animation: hide-overlay 0.2s ease-in 1.25s forwards;
+}
+
+/* Shadow beneath the smiley */
+.smiley-shadow {
+  width: 320px;
+  position: absolute;
+  top: calc(50% + 130px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: 0;
+  scale: 0%;
+  will-change: scale;
+  animation: shadow 0.5s linear forwards;
+}
+
+/* ── Keyframes ── */
+
+@keyframes drop {
+  0%   { translate: 0 -200%; }
+  55%  { scale: 100% 100%; }
+  60%  { translate: 0 0%; scale: 80% 120%; }
+  65%  { scale: 100% 100%; }
+  70%  { translate: 0 -8%; }
+  75%  { scale: 100% 100%; }
+  80%  { translate: 0 0%; scale: 90% 110%; }
+  85%  { scale: 100% 100%; }
+  90%  { translate: 0 -4%; }
+  100% { translate: 0 0%; }
+}
+
+@keyframes spin {
+  0%   { rotate: 0deg; }
+  100% { rotate: 360deg; }
+}
+
+@keyframes shadow {
+  0%   { scale: 0%; }
+  80%  { scale: 0%; }
+  100% { scale: 100%; }
+}
+
+@keyframes hide-overlay {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── Responsive Hero Inner ── */
+@media (max-width: 960px) {
+  .hero-inner {
+    padding: 100px 16px 60px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-title h1 {
+    padding-left: 0;
+  }
+  .anim-box {
+    display: none;
+  }
+}
