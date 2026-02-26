@@ -1,8 +1,8 @@
 import React from 'react';
 import './Hero.css';
 
-const smileySvg = process.env.PUBLIC_URL + '/assets/smiley.svg';
-const shadowSvg = process.env.PUBLIC_URL + '/assets/shadow.svg';
+// const smileySvg = process.env.PUBLIC_URL + '/assets/smiley.svg';
+// const shadowSvg = process.env.PUBLIC_URL + '/assets/shadow.svg';
 
 /* ── Character-level line data ── */
 const LINE_1 = 'We turned';
