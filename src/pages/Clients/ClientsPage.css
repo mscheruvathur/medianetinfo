@@ -1,122 +1,52 @@
-body {
-  background: linear-gradient(135deg, #f7fafc 0%, #e3f0fa 100%);
-}
-
-.clients-page-hero {
-  position: relative;
-  z-index: 2;
-}
-.clients-page-subtitle {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.15rem;
-  color: #4a6fa1;
-  margin: 18px auto 0;
-  max-width: 540px;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-  text-shadow: 0 2px 8px rgba(29,147,209,0.07);
-}
-
-.clients-page-grid {
-  margin-top: 32px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(29,147,209,0.07);
-  padding: 18px 0 8px 0;
-  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
-}
-
-.clients-page-logo-card {
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(29,147,209,0.04);
-  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
-  background: #fff;
-  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
-  opacity: 0;
-  transform: translateY(30px);
-}
-.clients-page-logo-card img {
-  filter: grayscale(100%) brightness(0.95);
-  opacity: 0.7;
-  transition: filter 0.3s, opacity 0.3s, transform 0.2s;
-}
-.clients-page-logo-card:hover {
-  box-shadow: 0 8px 32px rgba(29,147,209,0.13);
-  background: #f7fafc;
-  transform: translateY(-6px) scale(1.04);
-}
-.clients-page-logo-card:hover img {
-  filter: grayscale(0%) brightness(1.05);
-  opacity: 1;
-  transform: scale(1.08) rotate(-2deg);
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* ── Video section ── */
-.clients-page-videos {
-  width: 100%;
-  background: #f7fafc;
-  padding: 32px 0 16px;
-  display: flex;
-  justify-content: center;
-}
-.clients-page-videos-inner {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-}
-.clients-page-video {
-  width: 340px;
-  height: 200px;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  background: #000;
-}
-
-@media (max-width: 1100px) {
-  .clients-page-videos-inner {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .clients-page-video {
-    width: 100%;
-    max-width: 400px;
-    height: 220px;
-  }
-}
 /* ============================================================
-   CLIENTS PAGE
+   CLIENTS PAGE - SHARP MODERN COLLAGE
    ============================================================ */
 
 #clients-page {
-  background: #fff;
+  background: #ffffff;
   min-height: 100vh;
   padding-top: 80px;
 }
 
-/* ── Hero heading ── */
+/* ============================================================
+   VIDEO SECTION
+   ============================================================ */
+
+.clients-page-videos {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: #000;
+}
+
+.clients-page-videos-inner {
+  display: flex;
+  width: 100%;
+}
+
+.clients-page-video {
+  flex: 1 1 33.333%;
+  width: 33.333%;
+  height: 18vw;
+  min-height: 220px;
+  max-height: 340px;
+  border: 0;
+  display: block;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
 .clients-page-hero {
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 70px 20px 38px;
 }
 
 .clients-page-heading {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4.8vw, 3.2rem);
   color: #111;
   margin: 0;
   line-height: 1.2;
@@ -126,77 +56,134 @@ body {
   color: #1D93D1;
 }
 
-/* ── Logo grid ── */
+/* ============================================================
+   COLLAGE GRID
+   ============================================================ */
+
 .clients-page-grid {
+  /* max-width: 1220px; */
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background-color: #e8ecef;
-  border: 1px solid #e8ecef;
-  margin-bottom: 0;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  background: #ffffff;
+  border: 0;
+  padding: 0 24px 20px;
 }
 
-/* ── Individual logo card ── */
+/* ============================================================
+   LOGO CARD (NO RADIUS, NO PADDING)
+   ============================================================ */
+
 .clients-page-logo-card {
-  background: #fff;
+  background: transparent;
+  aspect-ratio: auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 36px 28px;
-  aspect-ratio: 16 / 9;
-  transition: box-shadow 0.2s;
+  border: 0;
+  border-radius: 0;
+
+  overflow: visible;
+  position: relative;
+  transition: none;
 }
 
+/* Hover Effect */
 .clients-page-logo-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  z-index: 1;
-  position: relative;
+  transform: none;
+  box-shadow: none;
+  z-index: auto;
 }
+
+/* ============================================================
+   LOGO IMAGE (PERFECT FIT INSIDE BOX)
+   ============================================================ */
 
 .clients-page-logo-card img {
-  max-width: 100%;
-  max-height: 80px;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 0.3s, opacity 0.3s;
+  object-position: center;
+  padding: 0;
+  box-sizing: border-box;
+  transform: scale(1);
+  /* filter: grayscale(100%); */
+  /* opacity: 0.82; */
+  transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
 }
 
+/* Subtle zoom on hover */
 .clients-page-logo-card:hover img {
+  transform: scale(1.06);
   filter: grayscale(0%);
   opacity: 1;
 }
 
-/* Fallback when image fails to load */
+/* ============================================================
+   FALLBACK TEXT
+   ============================================================ */
+
+.logo-name-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo-name-fallback::after {
   content: attr(data-name);
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 0.85rem;
-  color: #999;
+  font-size: 0.9rem;
+  color: #666;
   text-align: center;
 }
 
-/* ── Responsive ── */
-@media (max-width: 1024px) {
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1200px) {
   .clients-page-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .clients-page-video {
+    height: 24vw;
+    min-height: 200px;
   }
 }
 
 @media (max-width: 768px) {
-  .clients-page-grid {
-    grid-template-columns: repeat(3, 1fr);
+
+  .clients-page-videos-inner {
+    flex-direction: column;
   }
 
-  .clients-page-logo-card {
-    padding: 24px 16px;
+  .clients-page-video {
+    width: 100%;
+    height: 240px;
+    min-height: 240px;
+    max-height: none;
+  }
+
+  .clients-page-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 0 12px 14px;
   }
 }
 
 @media (max-width: 480px) {
+
   .clients-page-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 12px 14px;
   }
 
   .clients-page-hero {

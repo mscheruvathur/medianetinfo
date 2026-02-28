@@ -93,6 +93,7 @@
   width: 100%;
   overflow: hidden;
   background: #f0f0f0;
+  border-radius: 34px;
 }
 
 .team-player-img {
@@ -100,11 +101,13 @@
   height: auto !important;
   display: block;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  filter: grayscale(100%);
+  transition: transform 0.5s ease, filter 0.45s ease;
 }
 
 .team-player:hover .team-player-img {
   transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
 .team-player-info {

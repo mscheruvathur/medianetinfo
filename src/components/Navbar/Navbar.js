@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
-  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Clients', href: '/clients' },
@@ -21,21 +20,33 @@ const branches = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hideOnFooter, setHideOnFooter] = useState(false);
   const location = useLocation();
 
   // Close sidebar on route change
   useEffect(() => {
     setOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [location]);
 
   // Only enable scroll effect on home page
   useEffect(() => {
     if (location.pathname === '/') {
-      const handleScroll = () => setScrolled(window.scrollY > 60);
+      const handleScroll = () => {
+        const heroSection = document.getElementById('home-banner2');
+        const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+        setScrolled(window.scrollY >= heroHeight);
+      };
+
       window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll);
       // Set initial state
-      setScrolled(window.scrollY > 60);
-      return () => window.removeEventListener('scroll', handleScroll);
+      handleScroll();
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleScroll);
+      };
     } else {
       setScrolled(true); // Always scrolled style on other pages
     }
@@ -47,10 +58,29 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  // Hide top navbar when footer is in view
+  useEffect(() => {
+    const footer = document.getElementById('wrapper-footer');
+    if (!footer) {
+      setHideOnFooter(false);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideOnFooter(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   return (
     <>
       {/* ──────── Top Bar ──────── */}
-      <header className={`site-header${scrolled ? ' scrolled' : ''}`} role="banner">
+      <header className={`site-header${scrolled ? ' scrolled' : ''}${open ? ' menu-open' : ''}${hideOnFooter ? ' footer-hidden' : ''}`} role="banner">
         <div className="header-inner">
           <Link to="/" className="site-logo" aria-label="Medianet Info – Home">
             <img
@@ -110,16 +140,16 @@ export default function Navbar() {
           {/* Social icons */}
           <div className="sm-icons">
             <a href="https://www.facebook.com/medianetadvertising/" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <i className="fa fa-facebook" aria-hidden="true" />
             </a>
             <a href="https://wa.me/919745222256?text=Hello+Medianet" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <i className="fa fa-whatsapp" aria-hidden="true" />
             </a>
             <a href="https://www.instagram.com/medianetadvertising/" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <i className="fa fa-instagram" aria-hidden="true" />
             </a>
             <a href="https://www.youtube.com/channel/UC1ByB7AVXg62gLrzhflsleA" target="_blank" rel="noreferrer" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
+              <i className="fa fa-youtube-play" aria-hidden="true" />
             </a>
           </div>
 
@@ -127,14 +157,14 @@ export default function Navbar() {
           <div className="menu-footer-cta">
             <p>Looking for a creative partner?</p>
             <h5 className="pulse">
-              <Link to="/contact" onClick={() => setOpen(false)}>Let's talk &rsaquo;</Link>
+              <Link to="/contact" onClick={() => setOpen(false)}>Let's talk <i className="fa fa-commenting-o" aria-hidden="true" /></Link>
             </h5>
           </div>
 
           {/* Branch cities */}
           <div className="menu-footer-branches">
             {branches.map((b) => (
-              <a key={b.city} href="#top" className="branch-city">{b.city}</a>
+              <a key={b.city} href="contact" className="branch-city">{b.city}</a>
             ))}
           </div>
 

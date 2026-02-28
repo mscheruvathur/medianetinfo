@@ -4,29 +4,39 @@ import Footer from '../../components/Footer/Footer';
 import FooterCTA from '../../components/FooterCTA/FooterCTA';
 import './ClientsPage.css';
 
-const BASE = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/clients/';
+const BASE = '/assets/';
 
 const ALL_CLIENTS = [
-  { name: 'JCB',               src: `${BASE}jcb.png` },
-  { name: 'myG',               src: `${BASE}myg.png` },
-  { name: 'Cosmos Sports',     src: `${BASE}cosmos-sports.png` },
-  { name: 'BeautyMark',        src: `${BASE}beautymark.png` },
-  { name: 'Decathlon',         src: `${BASE}decathlon.png` },
-  { name: 'Wonderla',          src: `${BASE}wonderla.png` },
-  { name: 'Kenza TMT',         src: `${BASE}kenza.png` },
-  { name: 'Impex',             src: `${BASE}impex.png` },
-  { name: 'Francis Alukkas',   src: `${BASE}francis-alukkas.png` },
-  { name: 'EVM Nissan',        src: `${BASE}evm-nissan.png` },
-  { name: 'Shobhika Weddings', src: `${BASE}shobhika.png` },
-  { name: 'Hyba Developers',   src: `${BASE}hyba.png` },
-  { name: 'Parisons',          src: `${BASE}parisons.png` },
-  { name: 'Memorice',          src: `${BASE}memorice.png` },
-  { name: 'Palaxi Cinemas',    src: `${BASE}palaxi.png` },
-  { name: 'BestWood',          src: `${BASE}bestwood.png` },
-  { name: 'Harvest',           src: `${BASE}harvest.png` },
-  { name: 'Landmark Maple',    src: `${BASE}landmark-maple.png` },
-  { name: 'Yamaha',            src: `${BASE}yamaha.png` },
-  { name: 'Natural',           src: `${BASE}natural.png` },
+  { name: 'Wonderla',      src: `${BASE}wonderla.svg` },
+  { name: 'myG',           src: `${BASE}my-g.svg` },
+  { name: 'Cosmos',        src: `${BASE}cosmos.svg` },
+  { name: 'Beauty Mark',   src: `${BASE}beauty-mark.svg` },
+  { name: 'Decathlon',     src: `${BASE}decathlon.svg` },
+  { name: 'Kenza',         src: `${BASE}kenza.svg` },
+  { name: 'Impex',         src: `${BASE}impex.svg` },
+  { name: 'Landmark',      src: `${BASE}landmark.svg` },
+  { name: 'Vstar',         src: `${BASE}vstar.svg` },
+  { name: 'Salpido',       src: `${BASE}salpido.svg` },
+  { name: 'Double Horse',  src: `${BASE}double-horse.svg` },
+  { name: 'Galaxy',        src: `${BASE}galaxy.svg` },
+  { name: 'Eham Digital',  src: `${BASE}eham-digital.svg` },
+  { name: 'Hilite',        src: `${BASE}hilite.svg` },
+  { name: 'Multi Wood',    src: `${BASE}multi-wood.svg` },
+  { name: 'myG',           src: `${BASE}francis-alukkas.svg` },
+  { name: 'Cosmos',        src: `${BASE}myop.svg` },
+  { name: 'Beauty Mark',   src: `${BASE}north-republic.svg` },
+  { name: 'Beauty Mark',   src: `${BASE}elance.svg` },
+  { name: 'Kenza',         src: `${BASE}meralda.svg` },
+  { name: 'Impex',         src: `${BASE}shobhika.svg` },
+  { name: 'Landmark',      src: `${BASE}hyba.svg` },
+  { name: 'Vstar',         src: `${BASE}parisons.svg` },
+  { name: 'Salpido',       src: `${BASE}memorice.svg` },
+  { name: 'Double Horse',  src: `${BASE}palaxi.svg` },
+  { name: 'Wonderla',      src: `${BASE}bestwood.svg` },
+  { name: 'Galaxy',        src: `${BASE}harvest.svg` },
+  { name: 'Eham Digital',  src: `${BASE}theshap.svg` },
+  { name: 'Hilite',        src: `${BASE}kanamkandi.svg` },
+  { name: 'Multi Wood',    src: `${BASE}kite.svg` },
 ];
 
 export default function ClientsPage() {
@@ -36,7 +46,7 @@ export default function ClientsPage() {
       <main id="clients-page">
 
         {/* Video section */}
-        <section className="clients-page-videos">
+        <section id="videos" className="clients-page-videos">
           <div className="clients-page-videos-inner">
             <iframe
               className="clients-page-video"
@@ -48,7 +58,7 @@ export default function ClientsPage() {
             />
             <iframe
               className="clients-page-video"
-              src="https://www.youtube.com/embed/bSXrPgP_ayk?autoplay=1&mute=1&loop=1&playlist=bSXrPgP_ayk"
+              src="https://www.youtube.com/embed/yvtTbOu08ZU?autoplay=1&mute=1&loop=1&playlist=yvtTbOu08ZU"
               title="Client Video 2"
               frameBorder="0"
               allow="autoplay; encrypted-media"
@@ -66,20 +76,18 @@ export default function ClientsPage() {
         </section>
 
 
-        {/* Hero heading with subtitle */}
-        <div className="clients-page-hero">
+        {/* Hero heading */}
+        <section className="clients-page-hero container">
           <h1 className="clients-page-heading">
             Our esteemed <span className="clients-page-blue">clients</span>
           </h1>
-          <p className="clients-page-subtitle">
-            We are proud to have worked with these amazing brands and organizations.
-          </p>
-        </div>
+        </section>
 
-        {/* Animated Logo grid */}
+        {/* Logo grid */}
         <div className="clients-page-grid container">
+      
           {ALL_CLIENTS.map((client, i) => (
-            <div key={client.name} className="clients-page-logo-card" style={{ animationDelay: `${0.05 * i + 0.1}s` }}>
+            <div key={`${client.name}-${i}`} className="clients-page-logo-card">
               <img
                 src={client.src}
                 alt={client.name}
