@@ -56,7 +56,22 @@
 }
 
 @media (max-width: 768px) {
+  #services {
+    padding: 44px 0;
+  }
+
   .services h1 {
     font-size: 2em;
+  }
+
+  .services h1::after {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services h1 {
+    font-size: 1.55em;
+    padding-right: 10px;
   }
 }

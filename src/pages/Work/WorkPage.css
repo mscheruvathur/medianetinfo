@@ -172,6 +172,14 @@
 }
 
 @media (max-width: 640px) {
+  .work-page {
+    padding-top: 80px;
+  }
+
+  .work-page-header {
+    padding: 58px 0 42px;
+  }
+
   .work-page-header-inner,
   .work-page-container {
     padding: 0 20px;
@@ -188,5 +196,21 @@
 
   .work-info h1 {
     font-size: 1.45rem;
+  }
+
+  .work-info {
+    opacity: 1;
+    transform: none;
+    padding: 14px 14px 12px;
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.78) 48%,
+      rgba(255, 255, 255, 0.18) 88%
+    );
+  }
+
+  #works.works-page-grid .work:hover {
+    transform: translateY(0);
   }
 }
