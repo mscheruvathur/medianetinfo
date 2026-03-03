@@ -167,4 +167,22 @@
   .team-grid {
     gap: 16px;
   }
+
+  .team-player-name {
+    font-size: 0.88rem;
+  }
+
+  .team-player-designation {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid-section {
+    padding: 44px 0 72px;
+  }
 }

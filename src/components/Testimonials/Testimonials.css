@@ -172,4 +172,29 @@
   .testimonials-heading {
     font-size: 2rem;
   }
+
+  .testimonial-card {
+    padding: 14px 8px 24px;
+  }
+
+  .quote-open,
+  .quote-close {
+    font-size: 4.2rem;
+  }
+
+  .quote-open {
+    top: -6px;
+    left: 2px;
+  }
+
+  .quote-close {
+    bottom: 22px;
+    right: 2px;
+  }
+
+  .quote-text {
+    font-size: 0.97rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
 }

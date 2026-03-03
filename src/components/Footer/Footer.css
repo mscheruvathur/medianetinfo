@@ -148,6 +148,14 @@ footer {
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .footer-addresses {
+    margin-bottom: 36px;
+  }
+
+  .address {
+    padding: 22px 16px;
+  }
+
+  .footer-addresses {
     flex-direction: column;
   }
 
@@ -159,11 +167,40 @@ footer {
   .footer-logo-row {
     justify-content: center;
   }
+
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .whatsapp-float i {
+    font-size: 27px;
+  }
+
+  .email-float {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 82px;
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 480px) {
   footer {
     padding: 40px 0 0;
+  }
+
+  .copy-text {
+    font-size: 0.66rem;
+    line-height: 1.5;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
   }
 }
 

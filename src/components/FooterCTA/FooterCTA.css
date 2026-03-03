@@ -56,4 +56,13 @@
   .cta-text {
     font-size: 0.95rem;
   }
+
+  .cta-link {
+    font-size: 1.2rem;
+  }
+
+  .cta-icon {
+    width: 18px;
+    height: 18px;
+  }
 }
