@@ -146,24 +146,32 @@
 
 /* ── CAROUSEL ── */
 .about-carousel {
-  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
 }
 
+.about-carousel-stack {
+  display: grid;
+}
+
 .about-carousel-slide {
-  animation: about-fade-in 0.4s ease;
+  grid-area: 1 / 1 / 2 / 2;
   text-align: center;
   max-width: 560px;
   margin: 0 auto;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes about-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+.about-carousel-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 
 .about-testimonial-quote {

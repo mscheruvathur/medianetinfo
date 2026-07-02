@@ -4,7 +4,8 @@ import Footer from '../../components/Footer/Footer';
 import FooterCTA from '../../components/FooterCTA/FooterCTA';
 import './About.css';
 
-const CDN = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/about/';
+// const CDN = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/about/';
+const CDN = '/images/about/';
 
 const testimonials = [
   {
@@ -61,21 +62,27 @@ function TestimonialCarousel() {
     return () => clearInterval(timer);
   }, [next]);
 
-  const t = testimonials[current];
-
   return (
     <div className="about-carousel">
-      <div className="about-carousel-slide" key={current}>
-        <p className="about-testimonial-quote">"{t.quote}"</p>
-        <div className="about-testimonial-info">
-          <h5 className="about-testimonial-name">{t.name}</h5>
-          <p className="about-testimonial-role">
-            {t.role} |{' '}
-            <a href={t.companyUrl} target="_blank" rel="noreferrer" className="about-testimonial-link">
-              {t.company}
-            </a>
-          </p>
-        </div>
+      <div className="about-carousel-stack">
+        {testimonials.map((t, i) => (
+          <div
+            className={`about-carousel-slide${i === current ? ' active' : ''}`}
+            key={i}
+            aria-hidden={i !== current}
+          >
+            <p className="about-testimonial-quote">"{t.quote}"</p>
+            <div className="about-testimonial-info">
+              <h5 className="about-testimonial-name">{t.name}</h5>
+              <p className="about-testimonial-role">
+                {t.role} |{' '}
+                <a href={t.companyUrl} target="_blank" rel="noreferrer" className="about-testimonial-link">
+                  {t.company}
+                </a>
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
       <div className="about-carousel-dots">
         {testimonials.map((_, i) => (
@@ -138,7 +145,7 @@ export default function About() {
               {/* Right: 15-years badge */}
               <div className="about-we-are-visual">
                 <img
-                  src={`${CDN}15-yrs-of-delight.png`}
+                  src={`${CDN}16-yrs-of-delight.png`}
                   alt="15 years of delight"
                   className="about-badge-img"
                 />

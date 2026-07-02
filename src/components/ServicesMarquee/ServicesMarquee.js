@@ -10,8 +10,7 @@ const SERVICES = [
   'Shop Branding',
   'Canopy Campaigns',
   'Radio Advertisement',
-  'Print Media',
-  'Prize with Surprize',
+  'Print Media' 
 ];
 
 // Double the list so the marquee loops seamlessly

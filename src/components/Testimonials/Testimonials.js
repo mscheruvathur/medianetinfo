@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Testimonials.css';
 
 const testimonials = [
@@ -45,31 +45,17 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [active, setActive] = useState(0);
-  const [fading, setFading] = useState(false);
+  const [current, setCurrent] = useState(0);
 
-  const goTo = (index) => {
-    if (index === active) return;
-    setFading(true);
-    setTimeout(() => {
-      setActive(index);
-      setFading(false);
-    }, 300);
-  };
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % testimonials.length);
+  }, []);
 
   // Auto-advance every 5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setFading(true);
-      setTimeout(() => {
-        setActive((prev) => (prev + 1) % testimonials.length);
-        setFading(false);
-      }, 300);
-    }, 5000);
+    const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
-  }, []);
-
-  const current = testimonials[active];
+  }, [next]);
 
   return (
     <section id="testimonials">
@@ -84,29 +70,37 @@ export default function Testimonials() {
             </h2>
           </div>
 
-          {/* Right: quote card */}
+          {/* Right: carousel */}
           <div className="testimonials-right">
-            <div className={`testimonial-card${fading ? ' fading' : ''}`}>
-              <span className="quote-open">&#x201C;</span>
-              <p className="quote-text">{current.quote}</p>
-              <span className="quote-close">&#x201D;</span>
-              <div className="customer-info">
-                <h5 className="customer-name">{current.name}</h5>
-                <p className="customer-role">
-                  {current.title} |{' '}
-                  <a href={current.companyUrl} target="_blank" rel="noopener noreferrer">
-                    {current.company}
-                  </a>
-                </p>
+            <div className="testi-carousel">
+              <div className="testi-carousel-stack">
+                {testimonials.map((t, i) => (
+                  <div
+                    className={`testi-slide${i === current ? ' active' : ''}`}
+                    key={i}
+                    aria-hidden={i !== current}
+                  >
+                    <p className="testi-quote">"{t.quote}"</p>
+                    <div className="customer-info">
+                      <h5 className="customer-name">{t.name}</h5>
+                      <p className="customer-role">
+                        {t.title} |{' '}
+                        <a href={t.companyUrl} target="_blank" rel="noopener noreferrer">
+                          {t.company}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="testi-dots" role="tablist" aria-label="Choose testimonial">
                 {testimonials.map((t, i) => (
                   <button
                     key={i}
-                    className={`testi-dot${i === active ? ' active' : ''}`}
-                    onClick={() => goTo(i)}
+                    className={`testi-dot${i === current ? ' active' : ''}`}
+                    onClick={() => setCurrent(i)}
                     role="tab"
-                    aria-selected={i === active}
+                    aria-selected={i === current}
                     aria-label={`Testimonial from ${t.name}`}
                   />
                 ))}

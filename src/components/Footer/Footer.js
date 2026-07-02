@@ -39,10 +39,10 @@ export default function Footer() {
           <div className="footer-logo-row">
             <a href="/" className="footer-logo-link" aria-label="Medianet Info">
               <img
-                src="https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/logo.svg"
+                src="https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/logo-footer.svg"
                 alt="Medianet Info"
                 className="footer-logo"
-                width="160"
+                width="260"
                 height="auto"
               />
             </a>

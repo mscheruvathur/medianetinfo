@@ -32,70 +32,59 @@
   color: #1D93D1;
 }
 
-/* ── Right: quote card ── */
+/* ── Right: carousel (mirrors About page testimonials carousel) ── */
 .testimonials-right {
   flex: 1;
   min-width: 0;
 }
 
-.testimonial-card {
-  position: relative;
+.testi-carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.testi-carousel-stack {
+  display: grid;
+}
+
+.testi-slide {
+  grid-area: 1 / 1 / 2 / 2;
   text-align: center;
-  padding: 20px 60px 40px;
-  transition: opacity 0.3s ease;
-}
-
-.testimonial-card.fading {
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
 }
 
-/* Opening " top-left */
-.quote-open {
-  position: absolute;
-  top: -10px;
-  left: 10px;
-  font-size: 7rem;
-  line-height: 1;
-  color: #c8cdd2;
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  pointer-events: none;
-  user-select: none;
+.testi-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 
-/* Closing " bottom-right */
-.quote-close {
-  position: absolute;
-  bottom: 50px;
-  right: 10px;
-  font-size: 7rem;
-  line-height: 1;
-  color: #c8cdd2;
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Quote text */
-.quote-text {
+.testi-quote {
   font-family: 'Rubik', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.75;
+  font-size: 0.98rem;
   color: #444;
-  margin: 0 auto 32px;
-  max-width: 600px;
+  line-height: 1.85;
+  margin: 0 0 20px;
+  font-style: italic;
 }
 
 /* Customer info */
 .customer-info {
-  margin-bottom: 28px;
+  text-align: center;
 }
 
 .customer-name {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0 0 4px;
@@ -104,7 +93,7 @@
 
 .customer-role {
   font-family: 'Rubik', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: #666;
   margin: 0;
 }
@@ -158,10 +147,6 @@
   .testimonials-heading {
     font-size: 2.5rem;
   }
-
-  .testimonial-card {
-    padding: 20px 30px 40px;
-  }
 }
 
 @media (max-width: 576px) {
@@ -171,30 +156,5 @@
 
   .testimonials-heading {
     font-size: 2rem;
-  }
-
-  .testimonial-card {
-    padding: 14px 8px 24px;
-  }
-
-  .quote-open,
-  .quote-close {
-    font-size: 4.2rem;
-  }
-
-  .quote-open {
-    top: -6px;
-    left: 2px;
-  }
-
-  .quote-close {
-    bottom: 22px;
-    right: 2px;
-  }
-
-  .quote-text {
-    font-size: 0.97rem;
-    line-height: 1.65;
-    margin-bottom: 20px;
   }
 }

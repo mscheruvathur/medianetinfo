@@ -52,12 +52,7 @@ const services = [
     id: 9,
     heading: ['Print', 'Media'],
     body: 'Simplifying the herculean task of brand building up a post modern and cost effective way.',
-  },
-  {
-    id: 10,
-    heading: ['Prize with', 'Surprize'],
-    body: 'Simplifying the herculean task of brand building up a post modern and cost effective way.',
-  },
+  }
 ];
 
 const marqueeNames = [
