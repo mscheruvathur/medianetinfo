@@ -14,22 +14,49 @@
 
 .clients-page-videos {
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  background: #000;
+  background: #ffffff;
+  padding: 56px 40px 64px;
 }
 
 .clients-page-videos-inner {
   display: flex;
-  width: 100%;
+  gap: 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Card wrapper gives the video its own unique framed, elevated look */
+.clients-video-card {
+  flex: 1 1 50%;
+  min-width: 0;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.clients-video-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1D93D1, #7bc9f2);
+  z-index: 1;
+}
+
+.clients-video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
 }
 
 .clients-page-video {
-  flex: 1 1 33.333%;
-  width: 33.333%;
-  height: 18vw;
-  min-height: 220px;
-  max-height: 340px;
+  width: 100%;
+  height: 24vw;
+  min-height: 260px;
+  max-height: 420px;
   border: 0;
   display: block;
 }
@@ -104,7 +131,7 @@
 .clients-page-logo-card img {
   width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 140px;
   object-fit: contain;
   object-position: center;
   padding: 0;
@@ -152,6 +179,10 @@
 }
 
 @media (max-width: 1024px) {
+  .clients-page-videos {
+    padding: 44px 24px 52px;
+  }
+
   .clients-page-video {
     height: 24vw;
     min-height: 200px;
@@ -160,8 +191,13 @@
 
 @media (max-width: 768px) {
 
+  .clients-page-videos {
+    padding: 36px 16px 44px;
+  }
+
   .clients-page-videos-inner {
     flex-direction: column;
+    gap: 18px;
   }
 
   .clients-page-video {
@@ -195,6 +231,6 @@
   }
 
   .clients-page-logo-card img {
-    max-height: 160px;
+    max-height: 90px;
   }
 }

@@ -1,0 +1,211 @@
+/* ============================================================
+   EXPERIENCE CENTRE SECTION — home page, above Our Projects
+   ============================================================ */
+
+#experience-centre-section {
+  background-color: #fff;
+  padding: 100px 0;
+  overflow: visible;
+}
+
+/* ── Split layout ── */
+.experience-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  overflow: visible;
+}
+
+/* ── LEFT: text panel ── */
+.experience-text {
+  flex: 0 0 260px;
+  width: 260px;
+  position: sticky;
+  top: 100px;
+}
+
+.experience-heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 18px;
+  line-height: 1;
+}
+
+.experience-blue {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  color: #1D93D1;
+  letter-spacing: -0.01em;
+}
+
+.experience-dark {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  color: #0d1b2e;
+  letter-spacing: -0.01em;
+}
+
+.experience-divider {
+  width: 44px;
+  height: 4px;
+  background: #1D93D1;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+.experience-body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 36px;
+}
+
+.btn-experience {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: #0d1b2e;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn-experience:hover {
+  background: #1D93D1;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* ── RIGHT: photo collage ──
+   Row 1: one square tile + one wide tile (spans 2 cols).
+   Row 2: three equal tiles. */
+.experience-collage {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 280px 150px;
+  gap: 16px;
+}
+
+.experience-photo {
+  position: relative;
+  overflow: hidden;
+  background: #eef1f4;
+}
+
+.experience-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.experience-photo:hover img {
+  transform: scale(1.07);
+}
+
+.experience-photo--square {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.experience-photo--wide {
+  grid-column: 2 / span 2;
+  grid-row: 1;
+}
+
+.experience-photo--small {
+  grid-row: 2;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .experience-inner {
+    padding: 0 48px;
+    gap: 40px;
+  }
+  .experience-text {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+  .experience-collage {
+    grid-template-rows: 240px 130px;
+  }
+}
+
+@media (max-width: 900px) {
+  .experience-inner {
+    flex-direction: column;
+    padding: 0 28px;
+    gap: 32px;
+  }
+  .experience-text {
+    flex: none;
+    width: 100%;
+    position: static;
+  }
+  .experience-collage {
+    grid-template-rows: 220px 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  #experience-centre-section {
+    padding: 72px 0;
+  }
+  .experience-inner {
+    padding: 0 18px;
+    gap: 24px;
+    align-items: center;
+  }
+  .experience-text {
+    text-align: center;
+  }
+  .experience-heading {
+    align-items: center;
+  }
+  .experience-divider {
+    margin: 0 auto 20px;
+  }
+  .experience-collage {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 180px 110px 110px;
+  }
+  .experience-photo--square {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .experience-photo--wide {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .experience-photo--small:nth-of-type(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .experience-photo--small:nth-of-type(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .experience-photo--small:nth-of-type(5) {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+}

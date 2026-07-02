@@ -5,69 +5,66 @@ import Footer from '../../components/Footer/Footer';
 import './WorkPage.css';
 
 const IMG = '/images/projects/';
-const DECATHLON = IMG + 'Our%20Projects_-01.jpg.jpeg';
-const IMPEX = IMG + 'Our%20Projects_-02.jpg.jpeg';
-const HILITE = IMG + 'Our%20Projects_-03.jpg.jpeg';
-const HONDA = IMG + 'Our%20Projects_-04.jpg.jpeg';
 
+// Every work item below uses a distinct source file — no image is reused.
 const works = [
   {
     name: 'JCB',
-    img: HONDA,
+    img: IMG + 'Decathlon.jpg.jpeg',
     href: 'https://medianetinfo.com/work/jcb/',
     shape: 'landscape',
   },
   {
     name: 'Francis Alukkas',
-    img: HILITE,
+    img: IMG + 'kenza_.jpg.jpeg',
     href: 'https://medianetinfo.com/work/francis-alukkas/',
     shape: 'portrait',
   },
   {
     name: 'M Lounge',
-    img: DECATHLON,
+    img: IMG + 'Adani_.jpg.jpeg',
     href: 'https://medianetinfo.com/work/mlounge/',
     shape: 'square',
   },
   {
     name: 'EVM Nissan',
-    img: IMPEX,
+    img: IMG + 'Honda.jpg.jpeg',
     href: 'https://medianetinfo.com/work/evm-nissan/',
     shape: 'landscape',
   },
   {
     name: 'Landmark Maple',
-    img: IMPEX,
+    img: IMG + 'Elance.jpg.jpeg',
     href: 'https://medianetinfo.com/work/landmark-maple/',
     shape: 'square',
   },
   {
     name: 'Yamaha',
-    img: DECATHLON,
+    img: IMG + 'Impex.jpg.jpeg',
     href: 'https://medianetinfo.com/work/yamaha/',
     shape: 'landscape',
   },
   {
     name: 'Natural',
-    img: HILITE,
+    img: IMG + 'Salpido_.jpg.jpeg',
     href: 'https://medianetinfo.com/work/natural/',
     shape: 'portrait',
   },
   {
     name: 'Lamit',
-    img: HONDA,
+    img: IMG + 'Hilite_.jpg.jpeg',
     href: 'https://medianetinfo.com/work/lamit/',
     shape: 'landscape',
   },
   {
     name: 'Mesmera',
-    img: DECATHLON,
+    img: IMG + 'indel%20suzuki.jpg.jpeg',
     href: 'https://medianetinfo.com/work/mesmera/',
     shape: 'square',
   },
   {
     name: 'Mend',
-    img: IMPEX,
+    img: IMG + 'Myg.jpg.jpeg',
     href: 'https://medianetinfo.com/work/mend/',
     shape: 'landscape',
   },

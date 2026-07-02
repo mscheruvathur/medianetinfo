@@ -48,30 +48,26 @@ export default function ClientsPage() {
         {/* Video section */}
         <section id="videos" className="clients-page-videos">
           <div className="clients-page-videos-inner">
-            <iframe
-              className="clients-page-video"
-              src="https://www.youtube.com/embed/bSXrPgP_ayk?autoplay=1&mute=1&loop=1&playlist=bSXrPgP_ayk"
-              title="Client Video 1"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-            <iframe
-              className="clients-page-video"
-              src="https://www.youtube.com/embed/yvtTbOu08ZU?autoplay=1&mute=1&loop=1&playlist=yvtTbOu08ZU"
-              title="Client Video 2"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-            <iframe
-              className="clients-page-video"
-              src="https://www.youtube.com/embed/bSXrPgP_ayk?autoplay=1&mute=1&loop=1&playlist=bSXrPgP_ayk"
-              title="Client Video 3"
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
+            <div className="clients-video-card">
+              <iframe
+                className="clients-page-video"
+                src="https://www.youtube.com/embed/bSXrPgP_ayk?autoplay=1&mute=1&loop=1&playlist=bSXrPgP_ayk"
+                title="Client Video 1"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+            <div className="clients-video-card">
+              <iframe
+                className="clients-page-video"
+                src="https://www.youtube.com/embed/yvtTbOu08ZU?autoplay=1&mute=1&loop=1&playlist=yvtTbOu08ZU"
+                title="Client Video 2"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
           </div>
         </section>
 

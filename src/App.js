@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import Clients from './components/Clients/Clients';
+import ExperienceCentre from './components/ExperienceCentre/ExperienceCentre';
 import Projects from './components/Projects/Projects';
 import Testimonials from './components/Testimonials/Testimonials';
 import HomeVideo from './components/HomeVideo/HomeVideo';
@@ -11,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import Contact from './pages/Contact/Contact';
 import ClientsPage from './pages/Clients/ClientsPage';
 import WorkPage from './pages/Work/WorkPage';
+import ExperiencePage from './pages/Experience/ExperiencePage';
 import About from './pages/About/About';
 import Services from './pages/Services/Services';
 import Team from './pages/Team/Team';
@@ -23,6 +25,7 @@ function Home() {
         <Hero />
         <HomeVideo />
         <Clients />
+        <ExperienceCentre />
         <Projects />
         <Testimonials />
         <FooterCTA />
@@ -43,6 +46,8 @@ function App() {
         <Route path="/clients/" element={<ClientsPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/work/" element={<WorkPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/experience/" element={<ExperiencePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/about/" element={<About />} />
         <Route path="/services" element={<Services />} />
