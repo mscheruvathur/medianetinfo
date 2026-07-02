@@ -4,66 +4,70 @@ import FooterCTA from '../../components/FooterCTA/FooterCTA';
 import Footer from '../../components/Footer/Footer';
 import './WorkPage.css';
 
-const CDN = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/home/projects/';
+const IMG = '/images/projects/';
+const DECATHLON = IMG + 'Our%20Projects_-01.jpg.jpeg';
+const IMPEX = IMG + 'Our%20Projects_-02.jpg.jpeg';
+const HILITE = IMG + 'Our%20Projects_-03.jpg.jpeg';
+const HONDA = IMG + 'Our%20Projects_-04.jpg.jpeg';
 
 const works = [
   {
     name: 'JCB',
-    img: CDN + 'project-2.png',
+    img: HONDA,
     href: 'https://medianetinfo.com/work/jcb/',
     shape: 'landscape',
   },
   {
     name: 'Francis Alukkas',
-    img: CDN + 'project-2.png',
+    img: HILITE,
     href: 'https://medianetinfo.com/work/francis-alukkas/',
     shape: 'portrait',
   },
   {
     name: 'M Lounge',
-    img: CDN + 'project-1.png',
+    img: DECATHLON,
     href: 'https://medianetinfo.com/work/mlounge/',
     shape: 'square',
   },
   {
     name: 'EVM Nissan',
-    img: CDN + 'project-4.png',
+    img: IMPEX,
     href: 'https://medianetinfo.com/work/evm-nissan/',
     shape: 'landscape',
   },
   {
     name: 'Landmark Maple',
-    img: CDN + 'project-3.png',
+    img: IMPEX,
     href: 'https://medianetinfo.com/work/landmark-maple/',
     shape: 'square',
   },
   {
     name: 'Yamaha',
-    img: CDN + 'project-3.png',
+    img: DECATHLON,
     href: 'https://medianetinfo.com/work/yamaha/',
     shape: 'landscape',
   },
   {
     name: 'Natural',
-    img: CDN + 'project-4.png',
+    img: HILITE,
     href: 'https://medianetinfo.com/work/natural/',
     shape: 'portrait',
   },
   {
     name: 'Lamit',
-    img: CDN + 'project-3.png',
+    img: HONDA,
     href: 'https://medianetinfo.com/work/lamit/',
     shape: 'landscape',
   },
   {
     name: 'Mesmera',
-    img: CDN + 'project-4.png',
+    img: DECATHLON,
     href: 'https://medianetinfo.com/work/mesmera/',
     shape: 'square',
   },
   {
     name: 'Mend',
-    img: CDN + 'project-2.png',
+    img: IMPEX,
     href: 'https://medianetinfo.com/work/mend/',
     shape: 'landscape',
   },

@@ -10,7 +10,7 @@
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 48px 0 16px;
 }
 
 .about-blue {
@@ -28,6 +28,7 @@
   gap: 64px;
   align-items: center;
 }
+
 
 .about-we-are-heading {
   font-family: 'Lato', sans-serif;
@@ -53,7 +54,7 @@
 }
 
 .about-badge-img {
-  height: 300px;
+  height: 480px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -243,7 +244,7 @@
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .about-container {
-    padding: 0 32px;
+    padding: 0 32px 0 12px;
   }
   .about-we-are-grid {
     gap: 40px;
@@ -255,7 +256,7 @@
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 0 20px;
+    padding: 0 20px 0 12px;
   }
   .about-we-are-grid {
     grid-template-columns: 1fr;
@@ -265,7 +266,7 @@
     order: -1;
   }
   .about-badge-img {
-    height: 220px;
+    height: 280px;
   }
   .about-quote-row {
     flex-direction: column;

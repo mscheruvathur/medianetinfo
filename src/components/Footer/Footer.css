@@ -5,22 +5,54 @@
 footer {
   background-color: #1D93D1;
   color: #fff;
-  padding: 60px 0 0;
+  padding: 35px 0 0;
 }
 
-/* ── Logo row — top right ── */
+/* ── Logo row — tagline left, logo right ── */
 .footer-logo-row {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+.footer-brand {
+  max-width: 480px;
+}
+
+.footer-tagline {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 12px;
+}
+
+.footer-email {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.footer-email:hover {
+  opacity: 0.75;
 }
 
 .footer-logo-link {
   display: inline-block;
+  flex-shrink: 0;
 }
 
 .footer-logo {
-  height: 58px;
+  height: 68px;
   width: auto;
   filter: brightness(0) invert(1);
 }
@@ -165,7 +197,14 @@ footer {
   }
 
   .footer-logo-row {
+    flex-direction: column;
     justify-content: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    max-width: none;
   }
 
   .whatsapp-float {

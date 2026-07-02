@@ -35,8 +35,18 @@ export default function Footer() {
       <footer id="wrapper-footer" role="contentinfo">
         <div className="container">
 
-          {/* Logo — top right */}
+          {/* Brand tagline — left, Logo — right */}
           <div className="footer-logo-row">
+            <div className="footer-brand">
+              <p className="footer-tagline">
+                Promptness and accuracy in delivering quality service is our
+                iconic history. Internationalism in the work culture and 16+
+                years of trusted partnerships with esteemed clients.
+              </p>
+              <a href="mailto:info@medianetinfo.com" className="footer-email">
+                info@medianetinfo.com
+              </a>
+            </div>
             <a href="/" className="footer-logo-link" aria-label="Medianet Info">
               <img
                 src="https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/logo-footer.svg"
