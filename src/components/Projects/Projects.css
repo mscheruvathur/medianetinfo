@@ -4,7 +4,7 @@
 
 #projects-section {
   background-color: #fff;
-  padding: 100px 0;
+  padding: 100px 0 90px;
   overflow: visible;
 }
 
@@ -405,10 +405,6 @@
 }
 
 @media (max-width: 768px) {
-  #projects-section {
-    padding: 72px 0;
-  }
-
   .projects-inner {
     padding: 0 18px;
     gap: 24px;
@@ -474,10 +470,13 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 576px) {
   #projects-section {
     padding: 60px 0;
   }
+}
+
+@media (max-width: 600px) {
   .projects-inner {
     padding: 0 16px;
   }
