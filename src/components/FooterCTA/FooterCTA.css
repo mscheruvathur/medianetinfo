@@ -35,10 +35,23 @@
   color: #1D93D1;
   text-decoration: none;
   transition: opacity 0.2s;
+  transform-origin: center;
 }
 .cta-link:hover {
   opacity: 0.8;
   text-decoration: none;
+}
+
+/* Attention-grabbing zoom in/out, loops continuously while the CTA is in view */
+.cta-link.cta-zoom {
+  animation: ctaZoom 3.2s ease-in-out infinite;
+}
+@keyframes ctaZoom {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.12); }
+  50%  { transform: scale(1); }
+  75%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
 }
 
 .cta-icon {

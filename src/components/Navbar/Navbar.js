@@ -5,10 +5,10 @@ import './Navbar.css';
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
+  { label: 'Experience Centre', href: '/experience' },
   { label: 'Clients', href: '/clients' },
-  { label: 'Team', href: '/team' },
   { label: 'Work', href: '/work' },
-  { label: 'Experience', href: '/experience' },
+  { label: 'Team', href: '/team' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -157,7 +157,7 @@ export default function Navbar() {
           {/* Looking for a creative partner */}
           <div className="menu-footer-cta">
             <p>Looking for a creative partner?</p>
-            <h5 className="pulse">
+            <h5 className={open ? 'cta-zoom' : ''}>
               <Link to="/contact" onClick={() => setOpen(false)}>Let's talk <i className="fa fa-commenting-o" aria-hidden="true" /></Link>
             </h5>
           </div>

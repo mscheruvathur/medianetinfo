@@ -250,15 +250,18 @@
   text-decoration: underline;
 }
 
-/* Pulse animation */
-.pulse {
+/* Attention-grabbing zoom in/out, loops continuously while the sidebar (and this CTA) is open */
+.cta-zoom {
   display: inline-block;
-  animation: pulse 2s infinite;
+  animation: ctaZoom 3.2s ease-in-out infinite;
   transform-origin: center left;
 }
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.05); }
+@keyframes ctaZoom {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.12); }
+  50%  { transform: scale(1); }
+  75%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
 }
 
 /* Branch cities row */

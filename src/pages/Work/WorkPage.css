@@ -1,6 +1,7 @@
 /* ============================================================
    WORK PAGE — /work
-   Image Collage Version
+   Shared with the Experience page (../Experience/ExperiencePage.js)
+   3-column responsive card grid
    ============================================================ */
 
 .work-page {
@@ -14,146 +15,85 @@
   padding: 0 40px;
 }
 
-/* ── Collage Section ── */
+/* ── Grid Section ── */
 .work-collage-section {
   background: #ffffff;
   padding: 56px 0 94px;
 }
 
-/* ── Collage — justified photo-gallery rows ──
-   Each row is a fixed-height flex line; items grow/shrink from a
-   per-shape flex-basis so widths land near their natural aspect
-   ratio (landscape widest, square, portrait narrowest). */
+/* ── Card grid — 3 up on desktop, equal-sized cards ── */
 .work-collage {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.work-collage-row {
-  display: flex;
-  gap: 16px;
-  height: 280px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 32px;
 }
 
 .collage-item {
-  display: block;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
-  background: #eef1f4;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-  height: 100%;
-  flex-grow: 1;
-  flex-shrink: 1;
+  background: #ffffff;
 }
 
-.collage-item img {
+/* ── Image — same aspect ratio for every card ── */
+.collage-media {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #eef1f4;
+}
+
+.collage-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  transform: scale(1);
-  transition: transform 0.55s ease;
 }
 
-/* ── Shapes (desktop flex-basis, ~ratio at 280px row height) ── */
-/* Landscape — ratio ~1.5:1 */
-.shape-landscape {
-  flex-basis: 420px;
-}
-
-/* Square — ratio ~1:1 */
-.shape-square {
-  flex-basis: 270px;
-}
-
-/* Portrait — ratio ~0.7:1 */
-.shape-portrait {
-  flex-basis: 195px;
-}
-
-/* ── Overlay ── */
-.collage-overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  position: absolute;
-  inset: 0;
-  padding: 20px 22px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.72) 0%,
-    rgba(0, 0, 0, 0.28) 55%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.32s ease, transform 0.32s ease;
+/* ── Text block below the image ── */
+.collage-body {
+  padding: 22px 2px 0;
 }
 
 .collage-name {
   font-family: 'Lato', sans-serif;
-  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  font-size: 1.3rem;
   font-weight: 900;
-  text-transform: uppercase;
-  color: #ffffff;
-  letter-spacing: 0.01em;
-  margin-bottom: 6px;
+  color: #0d1b2e;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.collage-desc {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
 }
 
 .collage-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Lato', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff;
-  border-bottom: 2px solid #1D93D1;
-  padding-bottom: 2px;
+  color: #1D93D1;
+  margin-top: 2px;
 }
 
-/* ── Hover Effects ── */
-.collage-item:hover img {
-  transform: scale(1.08);
-}
-
-.collage-item:hover .collage-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── Responsive ──
-   Below 900px a justified row gets cramped (too many narrow slivers),
-   so each row switches to its own 2-column grid; shape now controls
-   aspect-ratio instead of flex-basis. */
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .work-collage-row {
-    height: auto;
-    display: grid;
+  .work-collage {
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-flow: dense;
-    gap: 14px;
-  }
-
-  .collage-item {
-    height: auto;
-    flex-basis: auto;
-  }
-
-  .shape-landscape {
-    grid-column: span 2;
-    aspect-ratio: 16 / 9;
-  }
-
-  .shape-square {
-    aspect-ratio: 1 / 1;
-  }
-
-  .shape-portrait {
-    aspect-ratio: 3 / 4;
+    gap: 36px 24px;
   }
 }
 
@@ -171,26 +111,19 @@
   }
 
   .work-collage {
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .work-collage-row {
-    gap: 12px;
+  .collage-media {
+    max-width: 100%;
   }
 
-  .shape-landscape {
-    aspect-ratio: 4 / 3;
+  .collage-name {
+    font-size: 1.15rem;
   }
 
-  .collage-overlay {
-    opacity: 1;
-    transform: none;
-    padding: 14px 14px 12px;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.28) 55%,
-      rgba(0, 0, 0, 0) 100%
-    );
+  .collage-desc {
+    font-size: 0.88rem;
   }
 }

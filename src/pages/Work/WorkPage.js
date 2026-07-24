@@ -8,75 +8,17 @@ const IMG = '/images/projects/';
 
 // Every work item below uses a distinct source file — no image is reused.
 const works = [
-  {
-    name: 'JCB',
-    img: IMG + 'Decathlon.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/jcb/',
-    shape: 'landscape',
-  },
-  {
-    name: 'Francis Alukkas',
-    img: IMG + 'kenza_.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/francis-alukkas/',
-    shape: 'portrait',
-  },
-  {
-    name: 'M Lounge',
-    img: IMG + 'Adani_.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/mlounge/',
-    shape: 'square',
-  },
-  {
-    name: 'EVM Nissan',
-    img: IMG + 'Honda.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/evm-nissan/',
-    shape: 'landscape',
-  },
-  {
-    name: 'Landmark Maple',
-    img: IMG + 'Elance.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/landmark-maple/',
-    shape: 'square',
-  },
-  {
-    name: 'Yamaha',
-    img: IMG + 'Impex.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/yamaha/',
-    shape: 'landscape',
-  },
-  {
-    name: 'Natural',
-    img: IMG + 'Salpido_.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/natural/',
-    shape: 'portrait',
-  },
-  {
-    name: 'Lamit',
-    img: IMG + 'Hilite_.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/lamit/',
-    shape: 'landscape',
-  },
-  {
-    name: 'Mesmera',
-    img: IMG + 'indel%20suzuki.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/mesmera/',
-    shape: 'square',
-  },
-  {
-    name: 'Mend',
-    img: IMG + 'Myg.jpg.jpeg',
-    href: 'https://medianetinfo.com/work/mend/',
-    shape: 'landscape',
-  },
+  { name: 'JCB', img: IMG + 'Decathlon.jpg.jpeg', href: 'https://medianetinfo.com/work/jcb/' },
+  { name: 'Francis Alukkas', img: IMG + 'kenza_.jpg.jpeg', href: 'https://medianetinfo.com/work/francis-alukkas/' },
+  { name: 'M Lounge', img: IMG + 'Adani_.jpg.jpeg', href: 'https://medianetinfo.com/work/mlounge/' },
+  { name: 'EVM Nissan', img: IMG + 'Honda.jpg.jpeg', href: 'https://medianetinfo.com/work/evm-nissan/' },
+  { name: 'Landmark Maple', img: IMG + 'Elance.jpg.jpeg', href: 'https://medianetinfo.com/work/landmark-maple/' },
+  { name: 'Yamaha', img: IMG + 'Impex.jpg.jpeg', href: 'https://medianetinfo.com/work/yamaha/' },
+  { name: 'Natural', img: IMG + 'Salpido_.jpg.jpeg', href: 'https://medianetinfo.com/work/natural/' },
+  { name: 'Lamit', img: IMG + 'Hilite_.jpg.jpeg', href: 'https://medianetinfo.com/work/lamit/' },
+  { name: 'Mesmera', img: IMG + 'indel%20suzuki.jpg.jpeg', href: 'https://medianetinfo.com/work/mesmera/' },
+  { name: 'Mend', img: IMG + 'Myg.jpg.jpeg', href: 'https://medianetinfo.com/work/mend/' },
 ];
-
-// Rows sized like a justified photo gallery — 4 / 3 / 3 across three rows.
-const ROW_SIZES = [4, 3, 3];
-const rows = ROW_SIZES.reduce((acc, size) => {
-  acc.rows.push(works.slice(acc.cursor, acc.cursor + size));
-  acc.cursor += size;
-  return acc;
-}, { rows: [], cursor: 0 }).rows;
 
 export default function WorkPage() {
   return (
@@ -84,29 +26,30 @@ export default function WorkPage() {
       <Navbar />
       <main className="work-page">
 
-        {/* ── Work Collage ── */}
+        {/* ── Work Grid ── */}
         <section className="work-collage-section">
           <div className="work-page-container">
             <div className="work-collage">
-              {rows.map((row, i) => (
-                <div className="work-collage-row" key={i}>
-                  {row.map((w) => (
-                    <a
-                      key={w.name}
-                      href={w.href}
-                      className={`collage-item shape-${w.shape}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View project: ${w.name}`}
-                    >
-                      <img src={w.img} alt={w.name} loading="lazy" />
-                      <div className="collage-overlay" aria-hidden="true">
-                        <span className="collage-name">{w.name}</span>
-                        <span className="collage-view">View Project</span>
-                      </div>
-                    </a>
-                  ))}
-                </div>
+              {works.map((w) => (
+                <a
+                  key={w.name}
+                  href={w.href}
+                  className="collage-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View project: ${w.name}`}
+                >
+                  <div className="collage-media">
+                    <img src={w.img} alt={w.name} loading="lazy" />
+                  </div>
+                  <div className="collage-body">
+                    <h3 className="collage-name">{w.name}</h3>
+                    <span className="collage-view">
+                      View Project
+                      <i className="fa fa-long-arrow-right" aria-hidden="true" />
+                    </span>
+                  </div>
+                </a>
               ))}
             </div>
           </div>

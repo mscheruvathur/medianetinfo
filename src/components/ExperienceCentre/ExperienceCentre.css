@@ -70,6 +70,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   padding: 14px 32px;
   background: #0d1b2e;
   color: #fff;
@@ -79,59 +80,142 @@
   letter-spacing: 0.04em;
   border-radius: 50px;
   text-decoration: none;
-  transition: background 0.25s, transform 0.2s;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+/* Continuous attention animation — runs only while the section is in view */
+.btn-experience.btn-cta-active {
+  animation: experience-breathe 3.4s ease-in-out infinite;
 }
 
 .btn-experience:hover {
   background: #1D93D1;
   color: #fff;
   text-decoration: none;
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 14px 32px rgba(29, 147, 209, 0.5), 0 0 22px 6px rgba(29, 147, 209, 0.45);
+  animation-play-state: paused;
 }
 
-/* ── RIGHT: photo collage ──
-   Row 1: one square tile + one wide tile (spans 2 cols).
-   Row 2: three equal tiles. */
-.experience-collage {
+.btn-experience-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-experience.btn-cta-active .btn-experience-arrow {
+  animation: experience-arrow-nudge 3.4s ease-in-out infinite;
+}
+
+.btn-experience:hover .btn-experience-arrow {
+  animation-play-state: paused;
+  transform: translateX(8px);
+}
+
+/* Gentle float + breathe + glowing border, all in one smooth loop */
+@keyframes experience-breathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 rgba(29, 147, 209, 0);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.035);
+    box-shadow: 0 10px 22px rgba(29, 147, 209, 0.3), 0 0 14px 3px rgba(29, 147, 209, 0.35);
+  }
+}
+
+@keyframes experience-arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-experience.btn-cta-active,
+  .btn-experience.btn-cta-active .btn-experience-arrow {
+    animation: none;
+  }
+}
+
+/* ── RIGHT: image carousel ── */
+.experience-carousel {
   flex: 1;
   min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 280px 150px;
-  gap: 16px;
 }
 
-.experience-photo {
+.experience-carousel-viewport {
   position: relative;
   overflow: hidden;
+  border-radius: 12px;
   background: #eef1f4;
+  box-shadow: 0 20px 45px rgba(13, 27, 46, 0.14);
 }
 
-.experience-photo img {
+.experience-slides-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.experience-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.experience-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 6s ease;
 }
 
-.experience-photo:hover img {
-  transform: scale(1.07);
+/* Slow, subtle Ken Burns drift on the visible slide — pauses along with autoplay on hover */
+.experience-carousel:hover .experience-slide img {
+  transform: scale(1.06);
 }
 
-.experience-photo--square {
-  grid-column: 1;
-  grid-row: 1;
+/* ── Navigation dots ── */
+.experience-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.experience-photo--wide {
-  grid-column: 2 / span 2;
-  grid-row: 1;
+.experience-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50px;
+  background: #d7dbe0;
+  cursor: pointer;
+  transition: width 0.35s ease, background 0.3s ease;
 }
 
-.experience-photo--small {
-  grid-row: 2;
+.experience-dot:hover {
+  background: #b7bec7;
+}
+
+.experience-dot.active {
+  width: 34px;
+  background: #1D93D1;
+}
+
+.experience-dot.active:hover {
+  background: #1D93D1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-slides-track {
+    transition: none;
+  }
+  .experience-slide img {
+    transition: none;
+  }
 }
 
 /* ── Responsive ── */
@@ -144,8 +228,8 @@
     flex: 0 0 220px;
     width: 220px;
   }
-  .experience-collage {
-    grid-template-rows: 240px 130px;
+  .experience-slide {
+    height: 360px;
   }
 }
 
@@ -160,8 +244,11 @@
     width: 100%;
     position: static;
   }
-  .experience-collage {
-    grid-template-rows: 220px 130px;
+  .experience-carousel {
+    width: 100%;
+  }
+  .experience-slide {
+    height: 320px;
   }
 }
 
@@ -183,29 +270,10 @@
   .experience-divider {
     margin: 0 auto 20px;
   }
-  .experience-collage {
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 180px 110px 110px;
+  .experience-slide {
+    height: 240px;
   }
-  .experience-photo--square {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .experience-photo--wide {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .experience-photo--small:nth-of-type(3) {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .experience-photo--small:nth-of-type(4) {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .experience-photo--small:nth-of-type(5) {
-    grid-column: 1 / span 2;
-    grid-row: 3;
+  .experience-dots {
+    margin-top: 16px;
   }
 }

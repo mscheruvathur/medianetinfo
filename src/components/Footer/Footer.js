@@ -43,8 +43,8 @@ export default function Footer() {
                 iconic history. Internationalism in the work culture and 16+
                 years of trusted partnerships with esteemed clients.
               </p>
-              <a href="mailto:info@medianetinfo.com" className="footer-email">
-                info@medianetinfo.com
+              <a href="mailto:mail@medianetinfo.com" className="footer-email">
+                mail@medianetinfo.com
               </a>
             </div>
             <a href="/" className="footer-logo-link" aria-label="Medianet Info">
@@ -118,7 +118,7 @@ export default function Footer() {
 
       {/* Email floating button */}
       <a
-        href="mailto:info@medianetinfo.com"
+        href="mailto:mail@medianetinfo.com"
         className="email-float"
         aria-label="Send Email"
       >

@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Projects.css';
 
 const IMG = '/images/projects/';
 
 export default function Projects() {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="projects-section">
+    <section id="projects-section" ref={sectionRef}>
       <div className="projects-inner">
 
         {/* ── Left: text ── */}
@@ -21,7 +37,10 @@ export default function Projects() {
             history. Internationalism in the work culture and many esteemed
             clients are our bookmarks.
           </p>
-          <Link to="/work" className="btn-discover">Discover More</Link>
+          <Link to="/work" className={`btn-discover${inView ? ' btn-cta-active' : ''}`}>
+            Discover More
+            <i className="fa fa-long-arrow-right btn-discover-arrow" aria-hidden="true" />
+          </Link>
         </div>
 
         {/* ── Right: 3-card bento grid ── */}

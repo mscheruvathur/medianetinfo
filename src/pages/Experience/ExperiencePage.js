@@ -7,20 +7,12 @@ import '../Work/WorkPage.css';
 const IMG = '/images/projects/';
 
 const photos = [
-  { name: 'boAt', img: `${IMG}Boat.jpg.jpeg`, shape: 'landscape' },
-  { name: 'Desai Homes', img: `${IMG}Desaai%20Home.jpg.jpeg`, shape: 'square' },
-  { name: 'Amend Dental', img: `${IMG}Amend.jpg.jpeg`, shape: 'landscape' },
-  { name: 'Go Kite', img: `${IMG}Go%20kite%20_.jpg.jpeg`, shape: 'landscape' },
-  { name: 'Simple Energy', img: `${IMG}simple.jpg.jpeg`, shape: 'landscape' },
+  { name: 'boAt', img: `${IMG}Boat.jpg.jpeg` },
+  { name: 'Desai Homes', img: `${IMG}Desaai%20Home.jpg.jpeg` },
+  { name: 'Amend Dental', img: `${IMG}Amend.jpg.jpeg` },
+  { name: 'Go Kite', img: `${IMG}Go%20kite%20_.jpg.jpeg` },
+  { name: 'Simple Energy', img: `${IMG}simple.jpg.jpeg` },
 ];
-
-// Rows sized like a justified photo gallery, same technique as the Work page.
-const ROW_SIZES = [2, 3];
-const rows = ROW_SIZES.reduce((acc, size) => {
-  acc.rows.push(photos.slice(acc.cursor, acc.cursor + size));
-  acc.cursor += size;
-  return acc;
-}, { rows: [], cursor: 0 }).rows;
 
 export default function ExperiencePage() {
   return (
@@ -28,20 +20,19 @@ export default function ExperiencePage() {
       <Navbar />
       <main className="work-page">
 
-        {/* ── Experience Centre Collage ── */}
+        {/* ── Experience Centre Grid ── */}
         <section className="work-collage-section">
           <div className="work-page-container">
             <div className="work-collage">
-              {rows.map((row, i) => (
-                <div className="work-collage-row" key={i}>
-                  {row.map((p) => (
-                    <div key={p.name} className={`collage-item shape-${p.shape}`}>
-                      <img src={p.img} alt={p.name} loading="lazy" />
-                      <div className="collage-overlay" aria-hidden="true">
-                        <span className="collage-name">{p.name}</span>
-                      </div>
-                    </div>
-                  ))}
+              {photos.map((p) => (
+                <div key={p.name} className="collage-item">
+                  <div className="collage-media">
+                    <img src={p.img} alt={p.name} loading="lazy" />
+                  </div>
+                  <div className="collage-body">
+                    <h3 className="collage-name">{p.name}</h3>
+                    <p className="collage-desc">Featured on display at the Medianet Experience Centre.</p>
+                  </div>
                 </div>
               ))}
             </div>

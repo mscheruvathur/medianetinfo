@@ -56,13 +56,16 @@ const services = [
 ];
 
 const marqueeNames = [
-  'Brand Promotion',
+  // 'Brand Promotion',
+  'Digital screen',
+  'Experience centre',
+  'Pole kiosk',
   'Event Management',
   'Hoarding',
-  'Vehicle Advertisement',
+  // 'Vehicle Advertisement',
   'Vehicle Branding',
   'Shop Branding',
-  'Canopy Campaigns',
+  // 'Canopy Campaigns',
   'Radio Advertisements',
   'Print Media',
 ];
