@@ -4,29 +4,26 @@ import Footer from '../../components/Footer/Footer';
 import FooterCTA from '../../components/FooterCTA/FooterCTA';
 import './Team.css';
 
-const CDN = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/team/';
+const IMG = '/images/ourteam/';
 
 const members = [
-  {
-    slug: 'thahir',
-    name: 'Thahir Kalari',
-    designation: 'Founder | Managing Partner',
-  },
-  {
-    slug: 'raees',
-    name: 'Raees Kotai',
-    designation: 'Co-founder | Partner',
-  },
-  {
-    slug: 'anwar',
-    name: 'Anwar Sadiq',
-    designation: 'Technical Head',
-  },
-  {
-    slug: 'vincy',
-    name: 'Vincy Suhas',
-    designation: 'Accounts Manager',
-  },
+  { file: '1-Thahir.jpg', caption: '1-Thahir' },
+  { file: '2-Rahees.jpg', caption: '2-Rahees' },
+  { file: '3-Anwar%20Sadiq-Technical%20Head.JPG', caption: '3-Anwar Sadiq-Technical Head' },
+  { file: '4-%20Shafi%20-%20Technical%20Head.jpg', caption: '4- Shafi - Technical Head' },
+  { file: '5-Suhana-%20Operation%20Head.jpg', caption: '5-Suhana- Operation Head' },
+  { file: '6-Unais-%20Site%20Supervisor.JPG', caption: '6-Unais- Site Supervisor' },
+  { file: '7-Faiz-%20Creative%20Head.PNG', caption: '7-Faiz- Creative Head' },
+  { file: '8-Priyatha-%20Content%20Creator.jpg', caption: '8-Priyatha- Content Creator' },
+  { file: '9-Vincy-%20Office%20Administrator.jpg', caption: '9-Vincy- Office Administrator' },
+  { file: '10-Haritha-Sales%20Assistant.jpg', caption: '10-Haritha-Sales Assistant' },
+  { file: '11-Sreelakshmi-%20Accounts%20Assistant.jpg', caption: '11-Sreelakshmi- Accounts Assistant' },
+  { file: '12-%20Navya%20-%20Graphic%20designer.jpg', caption: '12- Navya - Graphic designer' },
+  { file: '13-Ameen%20Junaid%20-Video%20Editor.jpg', caption: '13-Ameen Junaid -Video Editor' },
+  { file: '14-Athulya-%20Accounts%20Assistant.jpg', caption: '14-Athulya- Accounts Assistant' },
+  { file: '15-Arsha-Sales%20Assistant.jpg', caption: '15-Arsha-Sales Assistant' },
+  { file: '15-Rauf-%20Supervisor.jpg', caption: '15-Rauf- Supervisor' },
+  { file: '16-Rahul-Supervisor.jpg', caption: '16-Rahul-Supervisor' },
 ];
 
 export default function Team() {
@@ -81,19 +78,16 @@ export default function Team() {
           <div className="team-container">
             <div className="team-grid">
               {members.map((m) => (
-                <div className="team-player" key={m.slug}>
+                <div className="team-player" key={m.file}>
                   <div className="team-player-img-wrap">
                     <img
-                      src={`${CDN}${m.slug}.jpg`}
-                      alt={m.name}
+                      src={`${IMG}${m.file}`}
+                      alt={m.caption}
                       className="team-player-img"
                       loading="lazy"
                     />
                   </div>
-                  <div className="team-player-info">
-                    <h5 className="team-player-name">{m.name}</h5>
-                    <span className="team-player-designation">{m.designation}</span>
-                  </div>
+                  <span className="team-player-caption">{m.caption}</span>
                 </div>
               ))}
             </div>

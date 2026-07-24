@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import FooterCTA from '../../components/FooterCTA/FooterCTA';
 import './Services.css';
+import '../Work/WorkPage.css';
 
 const IMG = 'https://medianetinfo.com/wp-content/themes/medianetinfo-theme/img/services/';
 
@@ -96,37 +97,32 @@ export default function Services() {
           <div className="srv-marquee-track">
             {[...marqueeNames, ...marqueeNames].map((name, i) => (
               <span key={i} className="srv-marquee-item">
-                {name} <span className="srv-marquee-dot">○</span>
+                {name} <span className="srv-marquee-dot"></span>
               </span>
             ))}
           </div>
         </div>
 
-        {/* SERVICES GRID */}
-        <section className="srv-grid-section">
-          <div className="srv-container">
-            <div className="srv-grid">
+        {/* SERVICES GRID — same card design/layout as the Experience & Work pages */}
+        <section className="work-collage-section">
+          <div className="work-page-container">
+            <div className="work-collage">
               {services.map((s) => (
-                <div className="srv-card" key={s.id}>
-                  <div className="srv-card-img-wrap">
+                <div className="collage-item" key={s.id}>
+                  <div className="collage-media">
                     <img
                       src={`${IMG}${s.id}.png`}
                       alt={s.heading.join(' ')}
-                      className="srv-card-img"
                       loading="lazy"
                     />
                   </div>
-                  <div className="srv-card-info">
-                    <h2 className="srv-card-title">
-                      {s.heading.map((line, idx) => (
-                        <React.Fragment key={idx}>
-                          {line}
-                          {idx < s.heading.length - 1 && <br />}
-                        </React.Fragment>
-                      ))}
-                    </h2>
-                    <p className="srv-card-desc">{s.body}</p>
-                    <Link to="/contact" className="srv-card-btn">Get Quote</Link>
+                  <div className="collage-body">
+                    <h3 className="collage-name">{s.heading.join(' ')}</h3>
+                    <p className="collage-desc">{s.body}</p>
+                    <Link to="/contact" className="collage-view">
+                      Get Quote
+                      <i className="fa fa-long-arrow-right" aria-hidden="true" />
+                    </Link>
                   </div>
                 </div>
               ))}

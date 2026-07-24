@@ -38,7 +38,7 @@
 }
 
 .services h1::after {
-  content: '○';
+  /* content: '○'; */
   text-shadow: none;
   color: #fff;
   font-size: 0.4em;

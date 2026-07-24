@@ -13950,7 +13950,7 @@ footer .address p {
   color: #000;
 }
 #services .service-marquee .services h1::after {
-  content: "○";
+  content: "";
   text-shadow: none;
   color: black;
   font-size: 0.5em;
